@@ -227,4 +227,6 @@ if (message.content.startsWith(prefix + "close")) {
 });
 
 
+  client.login(process.env.BOT_TOKEN);
+
 
