@@ -1,16 +1,23 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = $
-
-client.on('ready',  () => {
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'); 
-  console.log('by VoidIsHere');
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-  console.log(`Logged in as  * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-  console.log('is online')
-client.user.setStatus("dnd");
+var Discord = require('discord.io');
+var logger = require('winston');
+var auth = require('./auth.json');
+// Configure logger settings
+logger.remove(logger.transports.Console);
+logger.add(logger.transports.Console, {
+    colorize: true
 });
+logger.level = 'debug';
+// Initialize Discord Bot
+var bot = new Discord.Client({
+   token: auth.token,
+   autorun: true
+});
+bot.on('ready', function (evt) {
+    logger.info('Connected');
+    logger.info('Logged in as: ');
+    logger.info(bot.username + ' - (' + bot.id + ')');
+});
+
 
 // playing
 client.on('ready', () => {                           
@@ -225,4 +232,4 @@ if (message.content.startsWith(prefix + "close")) {
 });
 
 
-client.login(process.env.BOT_TOKEN);
+
