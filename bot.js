@@ -207,6 +207,7 @@ if (message.content.startsWith(prefix + "close")) {
 });
 
 
-  client.login(NTAyODEyMzkzOTA3MjkwMTEy.DtdSbQ.EtQ9TE1zhsAIUn2irowrbn21N2U):
+client.login(process.env.BOT_TOKEN)
+
 
 
