@@ -72,26 +72,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
     message.channel.send(embed);
   }
-});
-  
-
-lient.on('message', warn => {
-  var prefix = "$";
-  let log = warn.guild.channels.find('name', "log")
-  let all = warn.guild.channels.find('name', "public-chat")
-  let user = warn.mentions.members.first();
-  let reason = warn.content.split(" ").slice(2).join(' ') 
-  if(warn.content.startsWith(prefix + "warn"){
-    var embed = new Discord.RichEmbed()
-    .setAuthor("New Warn !")
-    .setThumbnail(user.avatarURL)
-    .addField("User Warned", `${user}`)
-    .addField("Warned By", `<@${warn.author.id}>`)
-    .addField("Reason" , `${reason}`)
-  log.send({embed})
-  all.send({embed}
-  }
-});
+}):
 
 
 client.on("message", message => {
