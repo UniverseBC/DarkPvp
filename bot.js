@@ -20,27 +20,7 @@ client.user.setGame(`$help | :D `,'https://www.twitch.tv/tarikrs');             
 });          
 
 
-client.on('guildMemberAdd', member => {
-  member.addRole('name', "• New")
-});
 
-client.on('message', message => {
-  let log = message.guild.channels.find('name', "log") 
-  let act = message.guild.roles.find('name', "• Verified")
-  let user = message.mentions.members.first();
-  if(message.content.startsWith(prefix + "act")){
-    var embed = new Discord.RichEmbed() 
-    .setAuthor(message.author.username) 
-    .setThumbnail(user.avatarURL)
-    .addField('User Activated', ${user} get rank ${act})
-    .addField('By', <@${message.author.id}>)
-    .setTimestamp()
-    .setFooter("Codescopyright")
-  log.send({embed})
-  message.channel.send({embed})
-  user.addRole(${act})
-  }
-});
   const devs = ["502812393907290112"];
 const adminprefix = ["."];
 client.on('message', message => {
@@ -123,7 +103,7 @@ client.on("message", message => {
   message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : number of member took messege`); 
  message.delete(); 
 };     
 });
@@ -191,10 +171,10 @@ if (message.content.startsWith(prefix + "new")) {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
             });
-            message.channel.send(`:white_check_mark: **تم إنشاء تذكرتك ، #${c.name}.**`);
+            message.channel.send(`:white_check_mark: **Your ticked is now created ، #${c.name}.**`);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`مرحباّ ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون فريق الدعم لدينا قريبا للمساعدة.`)
+                .addField(`Welcome ${message.author.username}!`, `please say the reason to open this ticket to help you as much as we can.`)
                 .setTimestamp();
             c.send({
                 embed: embed
